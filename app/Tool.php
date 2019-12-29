@@ -8,5 +8,5 @@ class Tool extends Model
 {
     public $table = "tools";
 
-    protected $fillable = ['name','codeabr','stock','sequence','status'];
+    protected $fillable = ['name','codeabr','stock','sequence','status','id_group'];
 }

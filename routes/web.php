@@ -14,3 +14,10 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::resources([
+    'grupo' => 'GroupController',
+    'marca' => 'BrandController',
+    'hermano' => 'BrotherLDCController',
+    'herramienta' => 'ToolController'
+]);

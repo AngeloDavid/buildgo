@@ -8,5 +8,5 @@ class Batch extends Model
 {
     public $table = "batches";
 
-    protected $fillable = ['code','name','obs','estado','status'];
+    protected $fillable = ['code','name','obs','estado','status','id_tool','id_brand'];
 }
