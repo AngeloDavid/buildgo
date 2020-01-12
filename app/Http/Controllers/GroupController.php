@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 
 class GroupController extends Controller
 {
+    protected $title = 'Grupos';
+    protected $ruta =[];
     /**
      * Display a listing of the resource.
      *
@@ -13,7 +15,10 @@ class GroupController extends Controller
      */
     public function index()
     {
-        return view('grupo.index');
+
+        $ruta = ['Inicio','Grupos'];
+        $title = $this->title;
+        return view('grupo.index', compact('ruta','title'));
     }
 
     /**
@@ -24,6 +29,9 @@ class GroupController extends Controller
     public function create()
     {
         //
+        $ruta = ['Inicio','Grupos'];
+        $title = $this->title;
+        return view('grupo.new', compact('ruta','title'));
     }
 
     /**

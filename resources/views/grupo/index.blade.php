@@ -1,42 +1,42 @@
 @extends('base')
 @section('main-content')
     <div class="row">
-        <section class="col-lg-7 connectedSortable ui-sortable">
+        <section class="col-lg-12">
             <!-- Custom tabs (Charts with tabs)-->
-            <div class="card">
-              <div class="card-header ui-sortable-handle" style="cursor: move;">
+            <div class="card ">
+              <div class="card-header">
                 <h3 class="card-title">
-                  <i class="fas fa-chart-pie mr-1"></i>
-                  Sales
+                  <i class="fas fa-object-group mr-1"></i>
+                  Lista de Grupos de las heramientas
                 </h3>
                 <div class="card-tools">
-                  <ul class="nav nav-pills ml-auto">
+                  <ul class="nav nav-pills ml-auto success">
                     <li class="nav-item">
-                      <a class="nav-link active" href="#revenue-chart" data-toggle="tab">Area</a>
-                    </li>
-                    <li class="nav-item">
-                      <a class="nav-link" href="#sales-chart" data-toggle="tab">Donut</a>
+                      <a class="nav-link active" href="{{ url('/grupo/create')}}" data-toggle="tab">Nuevo</a>
                     </li>
                   </ul>
                 </div>
               </div><!-- /.card-header -->
               <div class="card-body">
-                <div class="tab-content p-0">
-                  <!-- Morris chart - Sales -->
-                  <div class="chart tab-pane active" id="revenue-chart" style="position: relative; height: 300px;"><div class="chartjs-size-monitor"><div class="chartjs-size-monitor-expand"><div class=""></div></div><div class="chartjs-size-monitor-shrink"><div class=""></div></div></div>
-                      <canvas id="revenue-chart-canvas" height="375" style="height: 300px; display: block; width: 414px;" width="517" class="chartjs-render-monitor"></canvas>                         
-                   </div>
-                  <div class="chart tab-pane" id="sales-chart" style="position: relative; height: 300px;">
-                    <canvas id="sales-chart-canvas" height="0" style="height: 0px; display: block; width: 0px;" width="0" class="chartjs-render-monitor"></canvas>                         
-                  </div>  
-                </div>
+                <table class="table table-condensed">
+                  <thead>
+                    <tr>
+                      <th style="width: 10px">#</th>
+                      <th>Descripcion</th>
+                      <th>Cantidad de Herramientas</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>1.</td>
+                      <td>Update software</td>
+                      <td><span class="badge bg-success">55</span></td>
+                    </tr>                   
+                  </tbody>
+                </table>
               </div><!-- /.card-body -->
             </div>
             <!-- /.card -->
-
-           
-
-            
           </section>
     </div>
 @endsection
