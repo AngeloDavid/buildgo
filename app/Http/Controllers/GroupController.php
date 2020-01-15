@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Group;
 use Illuminate\Http\Request;
 
 class GroupController extends Controller
@@ -16,9 +16,10 @@ class GroupController extends Controller
     public function index()
     {
 
-        $ruta = ['Inicio','Grupos'];
+        $ruta = [['Inicio',''],['Grupos','grupo']];
         $title = $this->title;
-        return view('grupo.index', compact('ruta','title'));
+        $list = Group::all();
+        return view('grupo.index', compact('ruta','title','list'));
     }
 
     /**
@@ -29,9 +30,11 @@ class GroupController extends Controller
     public function create()
     {
         //
-        $ruta = ['Inicio','Grupos'];
+        $ruta = [['Inicio',''],['Grupos','grupo'],['Nuevo','grupo/create']];
         $title = $this->title;
-        return view('grupo.new', compact('ruta','title'));
+        $isnew =true;
+        $urlForm = 'grupo';
+        return view('grupo.new', compact('ruta','title','urlForm','isnew'));
     }
 
     /**
@@ -43,6 +46,11 @@ class GroupController extends Controller
     public function store(Request $request)
     {
         //
+        $data = request()->all();
+        Group::create([
+            'descrip'=>$data['descrip']
+        ]);
+        return redirect()->route('grupo.index');
     }
 
     /**

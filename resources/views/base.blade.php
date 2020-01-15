@@ -319,8 +319,15 @@
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="#">Inicio</a></li>
-              <li class="breadcrumb-item active">Dashboard v1</li>
+              @foreach ($ruta as $item)
+                @if ($loop->last)
+                  <li class="breadcrumb-item active">{{ $item[0] }}</li>
+                @else
+                  <li class="breadcrumb-item"><a  href="{{ url($item[1])}}"  >{{ $item[0] }}</a></li>      
+                @endif              
+              @endforeach
+              
+              
             </ol>
           </div><!-- /.col -->
         </div><!-- /.row -->
@@ -338,7 +345,8 @@
   </div>
   <!-- /.content-wrapper -->
   <footer class="main-footer">
-    <strong>Build Cellar - Inventario de HERRAMIENTAS
+    <strong>Build Cellar - Inventario de HERRAMIENTAS <br>
+     
   </footer>
 
   <!-- Control Sidebar -->

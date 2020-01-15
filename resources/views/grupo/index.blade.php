@@ -12,7 +12,7 @@
                 <div class="card-tools">
                   <ul class="nav nav-pills ml-auto success">
                     <li class="nav-item">
-                      <a class="nav-link active" href="{{ url('/grupo/create')}}" data-toggle="tab">Nuevo</a>
+                      <a class="nav-link active" href="{{ url('/grupo/create')}}">Nuevo</a>
                     </li>
                   </ul>
                 </div>
@@ -23,15 +23,31 @@
                     <tr>
                       <th style="width: 10px">#</th>
                       <th>Descripcion</th>
+                      <th>Estado</th>
                       <th>Cantidad de Herramientas</th>
                     </tr>
                   </thead>
                   <tbody>
-                    <tr>
-                      <td>1.</td>
-                      <td>Update software</td>
-                      <td><span class="badge bg-success">55</span></td>
-                    </tr>                   
+                    @forelse ($list as $item)
+                      <tr>
+                        <td>{{ $loop->index + 1 }}</td>
+                        <td> {{ $item->descrip }}</td>
+                        <td> @if ($item->status == 1)
+                          <span class="badge bg-success">
+                            Activo
+                        @else
+                          <span class="badge bg-error">
+                            Inactivo
+                        @endif  
+                          </span> </td>
+                        <td> </td>
+                      </tr> 
+                    @empty
+                        <tr>
+                          <td colspan="12" style="text-align='center';"> "No existe registros"</td>
+                        </tr>
+                    @endforelse
+                                      
                   </tbody>
                 </table>
               </div><!-- /.card-body -->
