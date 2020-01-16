@@ -34,6 +34,7 @@ class GroupController extends Controller
         $title = $this->title;
         $isnew =true;
         $urlForm = 'grupo';
+        $group = new Group();
         return view('grupo.new', compact('ruta','title','urlForm','isnew'));
     }
 
@@ -72,7 +73,12 @@ class GroupController extends Controller
      */
     public function edit($id)
     {
-        //
+        $group = Group::find($id);
+        $ruta = [['Inicio',''],['Grupos','grupo'],['Editar','grupo/create']];
+        $title = $this->title;
+        $isnew =false;
+        $urlForm = 'grupo/'.$id;
+        return view('grupo.new', compact('ruta','title','urlForm','isnew','group'));
     }
 
     /**
@@ -85,6 +91,11 @@ class GroupController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $group = Group::find($id);
+        $data = request()->all();
+        $group->update ($data);        
+        $group->save();
+        return redirect()->route('grupo.index');
     }
 
     /**

@@ -41,6 +41,12 @@
                         @endif  
                           </span> </td>
                         <td> </td>
+                        <td> 
+                          <div class="btn-group">
+                          <a class="btn btn-default" href="{{ url('/grupo/'.$item->id.'/edit')}}"><i class="fa fa-edit"></i></a>
+                          <a class="btn btn-default" href="{{ url('/grupo/'.$item->id.'/edit')}}"><i class="fa fa-times-circle"></i></a>
+                          </div>
+                        </td>
                       </tr> 
                     @empty
                         <tr>

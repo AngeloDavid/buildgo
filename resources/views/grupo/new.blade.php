@@ -23,13 +23,13 @@
                   {{ method_field('PUT') }}
                 @endif
               <div class="card-body">
-                <div class="form-group">
+                {{-- <div class="form-group">
                     <label for="codigo">CODIGO</label>
                     <input type="email" class="form-control" id="codigo" name="code" placeholder="">
-                  </div>
+                  </div> --}}
                   <div class="form-group">
                     <label for="desc">Descipcion</label>
-                    <input type="email" class="form-control" id="descrip" name="descrip" placeholder="">
+                    <input type="email" class="form-control" id="descrip" name="descrip" value="{{ old('descrip',$group->descrip)}}" placeholder="">
                   </div>
               </div><!-- /.card-body -->
               <div class="card-footer">
