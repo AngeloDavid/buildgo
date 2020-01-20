@@ -7,12 +7,12 @@
               <div class="card-header">
                 <h3 class="card-title">
                   <i class="fas fa-object-group mr-1"></i>
-                    Nuevo Grupo
+                    Nueva Marca
                 </h3>
                 <div class="card-tools">
                   <ul class="nav nav-pills ml-auto success">
                     <li class="nav-item">
-                      <a class="nav-link active"  href="{{ url('/grupo')}}" >Lista</a>
+                      <a class="nav-link active"  href="{{ url('/marca')}}" >Lista</a>
                     </li>
                   </ul>
                 </div>
@@ -29,7 +29,7 @@
                   </div> --}}
                   <div class="form-group">
                     <label for="desc">Descipcion</label>
-                    <input type="email" class="form-control" id="descrip" name="descrip" value="{{ old('descrip',$group->descrip)}}" placeholder="">
+                    <input type="email" class="form-control" id="name" name="name" value="{{ old('name',$brand->name)}}" placeholder="">
                   </div>
                   <div class="form-group">
                     <label class="">

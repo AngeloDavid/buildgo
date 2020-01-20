@@ -1,11 +1,13 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Brand;
 use Illuminate\Http\Request;
 
 class BrandController extends Controller
 {
+    protected $title = 'Marcas';
+    protected $ruta =[];
     /**
      * Display a listing of the resource.
      *
@@ -13,7 +15,10 @@ class BrandController extends Controller
      */
     public function index()
     {
-        //
+        $ruta = [['Inicio',''],['Marcas','marca']];
+        $title = $this->title;
+        $list = Brand::all();
+        return view('brand.index', compact('ruta','title','list'));
     }
 
     /**
@@ -23,7 +28,12 @@ class BrandController extends Controller
      */
     public function create()
     {
-        //
+        $ruta = [['Inicio',''],['Marcas','grupo'],['Nuevo','marca/create']];
+        $title = $this->title;
+        $isnew =true;
+        $urlForm = 'marca';
+        $brand = new Brand();
+        return view('brand.new', compact('ruta','title','urlForm','isnew','brand'));
     }
 
     /**
@@ -34,7 +44,11 @@ class BrandController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = request()->all();
+        Brand::create([
+            'name'=>$data['name']
+        ]);
+        return redirect()->route('marca.index');
     }
 
     /**
@@ -56,7 +70,12 @@ class BrandController extends Controller
      */
     public function edit($id)
     {
-        //
+        $brand = Brand::find($id);
+        $ruta = [['Inicio',''],['Marca','grupo'],['Editar','']];
+        $title = $this->title;
+        $isnew =false;
+        $urlForm = 'marca/'.$id;
+        return view('brand.new', compact('ruta','title','urlForm','isnew','brand'));
     }
 
     /**
@@ -68,7 +87,11 @@ class BrandController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $brand = Brand::find($id);
+        $data = request()->all();
+        $brand->update ($data);        
+        $brand->save();
+        return redirect()->route('marca.index');
     }
 
     /**

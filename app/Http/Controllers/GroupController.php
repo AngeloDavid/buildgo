@@ -35,7 +35,7 @@ class GroupController extends Controller
         $isnew =true;
         $urlForm = 'grupo';
         $group = new Group();
-        return view('grupo.new', compact('ruta','title','urlForm','isnew'));
+        return view('grupo.new', compact('ruta','title','urlForm','isnew','group'));
     }
 
     /**
