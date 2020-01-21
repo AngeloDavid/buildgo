@@ -9,13 +9,14 @@
   <!-- Font Awesome -->
   <link rel="stylesheet" href="{{ asset('plugins/fontawesome-free/css/all.min.css')}}">
   <!-- Ionicons -->
-  <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css')}}">
+  <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
   <!-- Tempusdominus Bbootstrap 4 -->
   <link rel="stylesheet" href="{{ asset('plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css')}}">
   <!-- iCheck -->
   <link rel="stylesheet" href="{{ asset('plugins/icheck-bootstrap/icheck-bootstrap.min.css')}}">
   <!-- JQVMap -->
   <link rel="stylesheet" href="{{ asset('plugins/jqvmap/jqvmap.min.css')}}">
+  @yield('cssExtras')
   <!-- Theme style -->
   <link rel="stylesheet" href="{{ asset('dist/css/adminlte.min.css')}}">
   <!-- overlayScrollbars -->
@@ -25,7 +26,8 @@
   <!-- summernote -->
   <link rel="stylesheet" href="{{ asset('plugins/summernote/summernote-bs4.css')}}">
 
-  <link rel="stylesheet" href="{{ asset('plugins/iCheck/all.css')}}">
+  <link rel="stylesheet" href="{{ asset('plugins/icheck-bootstrap/icheck-bootstrap.css')}}">
+  
   <!-- Google Font: Source Sans Pro -->
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
 </head>
@@ -65,7 +67,7 @@
           <a href="#" class="dropdown-item">
             <!-- Message Start -->
             <div class="media">
-              <img src="dist/img/user1-128x128.jpg" alt="User Avatar" class="img-size-50 mr-3 img-circle">
+              <img src="{{ asset('dist/img/user1-128x128.jpg')}}" alt="User Avatar" class="img-size-50 mr-3 img-circle">
               <div class="media-body">
                 <h3 class="dropdown-item-title">
                   Brad Diesel
@@ -81,7 +83,7 @@
           <a href="#" class="dropdown-item">
             <!-- Message Start -->
             <div class="media">
-              <img src="dist/img/user8-128x128.jpg" alt="User Avatar" class="img-size-50 img-circle mr-3">
+              <img src="{{ asset('dist/img/user8-128x128.jpg')}}" alt="User Avatar" class="img-size-50 img-circle mr-3">
               <div class="media-body">
                 <h3 class="dropdown-item-title">
                   John Pierce
@@ -97,7 +99,7 @@
           <a href="#" class="dropdown-item">
             <!-- Message Start -->
             <div class="media">
-              <img src="dist/img/user3-128x128.jpg" alt="User Avatar" class="img-size-50 img-circle mr-3">
+              <img src="{{ asset('dist/img/user3-128x128.jpg')}}" alt="User Avatar" class="img-size-50 img-circle mr-3">
               <div class="media-body">
                 <h3 class="dropdown-item-title">
                   Nora Silvester
@@ -228,17 +230,19 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="pages/mailbox/mailbox.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>LISTA
-                      
-                  </p>
+                <a href="{{ url('/marca')}}" class="nav-link">                  
+                  <p>LISTA</p>
+                </a>
+              </li>  
+              <li class="nav-item">
+                <a href="{{ url('/marca/create')}}" class="nav-link">                  
+                  <p>Nuevo</p>
                 </a>
               </li>              
             </ul>
           </li>
           <li class="nav-item has-treeview">
-            <a href="{{ url('/grupo')}}" class="nav-link">
+            <a  class="nav-link">
               <i class="nav-icon fas fa-object-group"></i>
               <p>
                 GRUPOS
@@ -247,53 +251,15 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="pages/examples/invoice.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Invoice</p>
+                <a href="{{ url('/grupo')}}" class="nav-link">                  
+                  <p>LISTA</p>
                 </a>
-              </li>
+              </li>  
               <li class="nav-item">
-                <a href="pages/examples/profile.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Profile</p>
+                <a href="{{ url('/grupo/create')}}" class="nav-link">                  
+                  <p>Nuevo</p>
                 </a>
-              </li>
-              <li class="nav-item">
-                <a href="pages/examples/e_commerce.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>E-commerce</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="pages/examples/projects.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Projects</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="pages/examples/project_add.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Project Add</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="pages/examples/project_edit.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Project Edit</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="pages/examples/project_detail.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Project Detail</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="pages/examples/contacts.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Contacts</p>
-                </a>
-              </li>
+              </li> 
             </ul>
           </li>
           <li class="nav-header">HERMANOS</li>
@@ -368,11 +334,10 @@
   $.widget.bridge('uibutton', $.ui.button)
 </script>
 <!-- Bootstrap 4 -->
+<scri src="{{ asset('plugins/bootstrap/js/bootstrap.min.js')}}"></scri pt>
 <script src="{{ asset('plugins/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
 <!-- ChartJS -->
 <script src="{{ asset('plugins/chart.js/Chart.min.js')}}"></script>
-<!-- Sparkline -->
-<script src="{{ asset('plugins/sparklines/sparkline.js')}}"></script>
 <!-- JQVMap -->
 <script src="{{ asset('plugins/jqvmap/jquery.vmap.min.js')}}"></script>
 <script src="{{ asset('plugins/jqvmap/maps/jquery.vmap.usa.js')}}"></script>
@@ -387,11 +352,11 @@
 <script src="{{ asset('plugins/summernote/summernote-bs4.min.js')}}"></script>
 <!-- overlayScrollbars -->
 <script src="{{ asset('plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js')}}"></script>
+@yield('jsExtras')
 <!-- AdminLTE App -->
 <script src="{{ asset('dist/js/adminlte.js')}}"></script>
-<!-- AdminLTE dashboard demo (This is only for demo purposes) -->
-<script src="{{ asset('dist/js/pages/dashboard.js')}}"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="{{ asset('dist/js/demo.js')}}"></script>
+@yield('jscustomer')
 </body>
 </html>

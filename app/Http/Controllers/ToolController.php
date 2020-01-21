@@ -3,9 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\Tool;
+use App\Group;
 class ToolController extends Controller
 {
+    protected $title = 'Herramienta';
     /**
      * Display a listing of the resource.
      *
@@ -23,7 +25,13 @@ class ToolController extends Controller
      */
     public function create()
     {
-        //
+        $ruta = [['Inicio',''],['Herramientas','herramienta'],['Nuevo','']];
+        $title = $this->title;
+        $isnew =true;
+        $urlForm = 'herramienta';
+        $tool = new Tool();
+        $groups = Group::all();
+        return view('herramienta.new', compact('ruta','title','urlForm','isnew','tool','groups'));
     }
 
     /**
